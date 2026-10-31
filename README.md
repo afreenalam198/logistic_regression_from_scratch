@@ -45,12 +45,12 @@ When running the evaluations, a stark contrast emerges between the two models:
 * **The 2-Feature Baseline:** Both the Scratch model and Scikit-Learn converge to exact same results (Identical coefficients, accuracy and log loss).
 
 * **The 4-Feature Model:** When correlated features are introduced, the results diverge. Since, mean perimeter and mean area are strongly correlated with mean radius, it introduces multicolinearity. This makes the optimization problem poorly conditioned.
-  * * **Scikit-learn (L-BFGS):**
+  * **Scikit-learn (L-BFGS):**
     * Achieves a lower log loss (0.185735).
     * Produces substantially different coefficients, including a large positive radius coefficient and large negative perimeter and area coefficients.
     * These coefficients reflect conditional relationships between highly correlated features.
 
-  * * **Scratch Model (Gradient Descent):**
+  * **Scratch Model (Gradient Descent):**
     * Achieves a higher log loss (0.233614).
     * Produces substantially different coefficients from Scikit-learn.
     * Its fixed learning rate and basic gradient descent approach may struggle to converge efficiently on this poorly conditioned optimization problem.
