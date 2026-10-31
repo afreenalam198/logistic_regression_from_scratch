@@ -13,16 +13,16 @@ The from scratch engine is benchmarked against the industry-standard `scikit-lea
 This notebook explicitly codes the mathematical formulas required to "bend" a linear equation into a strict probability distribution:
 
 1. **The Sigmoid Activation Function ($\sigma$):**
-   Maps the raw linear output ($z = Xw + b$) to a strict probability range between 0.0 and 1.0.
+   Maps the raw linear output ($z = Xw + b$) to a strict probability range between 0.0 and 1.0.  
    $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
 2. **Binary Cross-Entropy Loss (Log Loss):**
-   We use Binary Cross-Entropy Loss to maintain a convex loss landscape when paired with the Sigmoid function. It heavily penalizes the model for being highly confident but incorrect.
+   We use Binary Cross-Entropy Loss to maintain a convex loss landscape when paired with the Sigmoid function. It heavily penalizes the model for being highly confident but incorrect.  
    $$\text{Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]$$
 
 3. **Gradient Descent (Calculus & Chain Rule):**
-   Calculates the partial derivatives of the log loss function with respect to the weights and bias. Because the derivatives of the Log Loss and Sigmoid functions elegantly cancel each other out, the resulting gradient formula matches Linear Regression:
-   $$dw = \frac{1}{N} X^T (\hat{y} - y)$$
+   Calculates the partial derivatives of the log loss function with respect to the weights and bias. Because the derivatives of the Log Loss and Sigmoid functions elegantly cancel each other out, the resulting gradient formula matches Linear Regression:  
+   $$dw = \frac{1}{N} X^T (\hat{y} - y)$$  
    $$db = \frac{1}{N} \sum (\hat{y} - y)$$
 
 ## Implementation Details
